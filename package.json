@@ -1,0 +1,13 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Браузерный калькулятор",
+  "scripts": {
+    "start": "vite --host --open index.html",
+    "dev": "vite --host --open index.html",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
