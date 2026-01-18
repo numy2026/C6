@@ -4,8 +4,7 @@
   "description": "Браузерный калькулятор",
   "scripts": {
     "start": "vite --host --open index.html",
-    "dev": "vite --host --open index.html",
-    "build": "echo 'Static site - no build needed'"
+    "dev": "vite --host --open index.html"
   },
   "devDependencies": {
     "vite": "^5.4.0"
