@@ -168,9 +168,9 @@
         <div class="display" id="display">0</div>
         <div class="buttons">
             <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="operator" onclick="sqrtCurrent()">√</button>
             <button class="operator" onclick="appendOperator('/')">/</button>
             <button class="operator" onclick="appendOperator('*')">×</button>
-            <button class="operator" onclick="deleteLast()">⌫</button>
             
             <button onclick="appendNumber('7')">7</button>
             <button onclick="appendNumber('8')">8</button>
@@ -262,6 +262,26 @@
                 currentInput += operator;
             }
             updateDisplay();
+        }
+
+        function sqrtCurrent() {
+            try {
+                let expression = currentInput.replace(/×/g, '*');
+                const value = Function('"use strict"; return (' + expression + ')')();
+
+                if (isNaN(value) || !isFinite(value) || value < 0) {
+                    currentInput = 'Ошибка';
+                } else {
+                    currentInput = Math.sqrt(value).toString();
+                }
+
+                updateDisplay();
+                shouldResetDisplay = true;
+            } catch (error) {
+                currentInput = 'Ошибка';
+                updateDisplay();
+                shouldResetDisplay = true;
+            }
         }
 
         function calculate() {
